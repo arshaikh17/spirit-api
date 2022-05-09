@@ -1,0 +1,252 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+        <svg width="24" height="22" x="0px" y="0px" viewBox="0 0 640.7 585.2" style="enable-background:new 0 0 640.7 585.2;" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path fill="#D3D3D3" d="M322.5,581.6c32.3-6.2,63.3-16.2,92.7-31.2c26.4-13.4,49.8-30.7,69.7-52.8c4.8-5.4,5.1-11.3,0.7-16.6
+                    c-5.5-6.7-15.9-9.7-24.3-1.2c-18.2,18.6-39.4,33.2-62.6,44.9c-26.8,13.5-55,22.1-84.8,26c-21.1,2.8-42.2,2.8-63.2,0.4
+                    c-19.5-2.2-38.5-6.9-56.7-14.4c-7.3-3-16.1,1.4-19.6,9.3c-3.4,7.6-1.2,14.4,7.4,17.7c11.4,4.5,23.1,8.1,34.8,11.6
+                    c9.5,2.8,19.2,4.8,28.8,7.1C260.3,585.7,304.3,586.7,322.5,581.6L322.5,581.6z"/>
+                <path fill="#D3D3D3" d="M279,486.1c53.9-0.9,97.7-18.1,134-53.5c9.9-9.6,23.1-7.4,26.8,4.6c2.1,6.9-0.7,12.8-5.7,17
+                    c-11.1,9.5-22.2,19.3-34.3,27.4c-29.9,20.1-63.4,30.5-99.3,33.1c-54.4,4-104.2-9.3-147.9-42.2c-44.5-33.6-72.3-78.1-82.3-133.2
+                    c-8.8-48.7-2.8-95.5,19.1-140c8.8-17.9,20.1-34.2,34.2-48.3c28.5-28.8,57.2-57.3,85.8-86c1.8-1.8,4-3.1,5.5-5.1
+                    c4.9-6.7,14.3-4.4,19.7,1.2c5.9,6,6.2,12.9,0.3,19c-8.5,9-17,17.8-25.7,26.6c-21.5,21.9-43.3,43.4-64.6,65.5
+                    c-24.2,25.2-38.5,55.7-45.1,89.8c-7,36-4.7,71.5,9.5,105.4c26.5,63.2,73.9,101.6,140.9,115.6C260.6,485.3,271.5,485.3,279,486.1z"
+                    />
+                <path fill="#D3D3D3" d="M286.7,380.8c-47-0.7-81.3-32.3-85.6-74.9c-2.8-27.9,8-50.3,27.1-69.6c19.9-20.1,39.8-40.3,60-60.2
+                    c18-17.8,36.4-35.2,54.7-52.7c5.7-5.4,12.1-4.7,18,1.2c5.8,5.9,6.4,13.2,1.2,18.7c-10.1,10.6-20.3,21.2-30.6,31.6
+                    c-28.4,28.8-57,57.5-85.5,86.3c-17.8,18.1-21,44.3-6.9,65.5c19.1,28.5,56.8,31,77.9,10.7c15.1-14.6,29.7-29.7,44.6-44.4
+                    c7-6.9,14.2-13.6,21.3-20.3c5.9-5.5,13-5,19,1c6.4,6.4,7,13.4,1.3,19.4c-10.8,11.3-21.8,22.5-32.8,33.7
+                    c-10.4,10.6-20.7,21.3-31.4,31.5C323.5,373.4,304.3,380.3,286.7,380.8z"/>
+                <path fill="#D3D3D3" d="M284.6,448.2c-59.6,0-106.8-28.2-136.4-85.4c-3.1-6-5.5-12.5-7.2-19c-1.8-6.8,2-12.9,8.8-16.2
+                    c5.5-2.7,12.2-1.1,16.6,4.3c2,2.5,3.6,5.6,4.9,8.6c17.1,42,47.5,68.2,92.4,75.8c39.8,6.8,74.5-4.9,103.2-33.2
+                    c21.6-21.2,42.7-43.1,64.2-64.5c12.7-12.7,25.7-25.2,38.6-37.8c6.2-6,14.3-5.7,20.8,0.7c6.1,6.1,6,13.2-0.4,19.8
+                    c-33.7,34.2-67.3,68.5-101.1,102.5C361.6,431.5,328.2,445.8,284.6,448.2z"/>
+                <path fill="#D3D3D3" d="M90.7,504.8c-2-1.2-6-2.5-8.6-5.1c-38.1-38.8-64.3-84.3-75.3-137.9c-1.7-8-3.2-17.2-4.2-25.4
+                    c-3.5-29.3-4.1-64.9,1.8-95.3c2.4-12.4,6.7-24.9,10.9-37.2C29.1,163,51.7,127.4,82.2,96.8c8-8,20.5-4.5,24.7,5
+                    c2.4,5.5,0.8,10-2.8,14.2c-5.7,6.5-11.5,12.9-16.9,19.7c-22.7,28.3-39.6,59.6-49,94.7c-7.7,28.8-10.7,58.1-8.1,88
+                    c3.2,37.2,13.4,72.2,31.4,104.9c10.6,19.2,23.9,36.5,38.8,52.5c1.4,1.5,2.6,3.1,4,4.5c4.9,4.9,4.4,10.4,1.6,16.1
+                    C103.2,501.8,98.6,504.3,90.7,504.8z"/>
+                <path fill="#D3D3D3" d="M156.8,267.6c-11,0-17.9-9.2-14.5-19.6c7.4-22.5,20.6-41.3,37-58c27.5-27.8,55-55.7,82.7-83.3
+                    c14.3-14.2,28.8-28.1,43.4-42.1c4.7-4.6,11.7-4,17.5,1c5.8,5.1,7.7,12.6,3.4,17.6c-5.9,7-12.3,13.6-18.7,20.1
+                    c-31.8,32.1-63.3,64.4-95.6,95.9c-18.1,17.7-33.5,36.9-43.2,60.4C166.6,264.9,162.7,267.9,156.8,267.6z"/>
+                <path fill="#D3D3D3" d="M353.6,244.4c-1,1.7-2.2,5.1-4.5,7.5c-18.5,19.1-37.2,38.1-56,56.9c-6.4,6.4-14.3,6.1-20.8-0.4
+                    c-6.4-6.4-6.4-13.5,0-20.2c12-12.4,23.9-25,36.2-37.2c6.8-6.8,14.3-13,21.3-19.6c4.3-4.1,9-4.9,14.1-2.3
+                    C349.4,231.9,353,236.2,353.6,244.4z"/>
+                <path fill="#D3D3D3" d="M357.4,206.3c1.3-2.6,2-5.8,3.9-7.7c12.6-12.8,25.3-25.5,38.3-37.8c6.1-5.8,13.5-4.8,19.2,1.5
+                    c6.7,7.3,7.2,11.8,0.4,19c-12.1,12.8-24.6,25.2-37.1,37.6c-4,4-9,5.1-14.2,2.3C362.2,218.2,358.1,213.7,357.4,206.3z"/>
+                <path fill="#D3D3D3" d="M497.3,352.3c0.4-0.9,0.8-3.7,2.3-5.4c11-12,21-25,34.8-34.2c5.3-3.5,12-2.5,17,2.8c5.5,5.8,6.7,11.3,2.2,16.2
+                    c-10.7,11.8-21.8,23.3-33,34.6c-3.7,3.8-8.6,3.8-13.5,1.5C501.7,365.3,497.4,359.2,497.3,352.3z"/>
+                <path fill="#D3D3D3" d="M382,119.8c-8.1-1.1-12.7-5.2-15.4-11.3c-2.4-5.5-0.9-10.3,3.4-14.4c8-7.7,15.8-15.6,23.9-23.3
+                    c4.4-4.2,9.6-4,14.8-1.5c5.5,2.7,8.8,7.1,9.3,13.2c0.1,1.9-0.8,4.5-2.1,5.9c-9.1,9.7-18.3,19.2-27.8,28.5
+                    C386.4,118.6,383.5,119.1,382,119.8z"/>
+                <path fill="#D3D3D3" d="M522.4,460.9c-5,5.1-11,6.4-17.3,4.3c-5.9-2-9-7.2-9.1-13.1c0-3.4,1.3-7.8,3.7-10.2l115.1-116.1
+                    c4.8-4.4,10.3-4.2,16-1.6c6,2.8,9.5,7.4,10,13.8c0.2,2-0.8,4.7-2.3,6.2L522.4,460.9z"/>
+                <path fill="#D3D3D3" d="M125.9,53.3c-6,6.2-6.1,12.8,0,19.3c6,6.3,14.1,7.3,19.9,1.6c14.3-14.1,44.5-45.2,50.5-51.3
+                    c0.3-0.3,0.7-0.7,1.1-1.1c1.4-1.5,2.3-4.1,2.2-6.1c-0.5-6.3-3.9-10.9-9.7-13.7c-5.4-2.6-10.8-2.9-15.4,1.5L125.9,53.3z"/>
+            </g>
+        </svg>
+        <span class="sf-toolbar-value">{{ collector.callsCount }}</span>
+    {% endset %}
+
+    {% set text %}
+        <div class="sf-toolbar-info-piece">
+            <div class="sf-toolbar-info-piece">
+                <b>Online:</b>
+                {% if collector.status == 'online' %}
+                    <span class="sf-toolbar-status sf-toolbar-status-green">Yes</span>
+                {% elseif collector.status == 'offline' %}
+                    <span class="sf-toolbar-status sf-toolbar-status-red">No</span>
+                {% else %}
+                    <span class="sf-toolbar-status">N/A</span>
+                {% endif %}
+            </div>
+            <div class="sf-toolbar-info-piece">
+                <b>Calls made:</b>
+                {% set callsCount = collector.callsCount %}
+                <span class="sf-toolbar-status{% if collector.hasErrors() %} sf-toolbar-status-red{% endif %}">{{ callsCount }}</span>
+            </div>
+            <div class="sf-toolbar-info-piece">
+                <b>Call time:</b>
+                <span class="sf-toolbar-status">{{ callsCount == 0 ? '-' : collector.totalTime|number_format }} ms</span>
+            </div>
+        </div>
+    {% endset %}
+
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { 
+        'link': true,
+        'status': collector.hasErrors() ? 'red' : null
+    }) }}
+{% endblock %}
+
+{% block menu %}
+    {# This left-hand menu appears when using the full-screen profiler. #}
+    <span class="label{% if collector.hasErrors() %} label-status-error{% endif %}">
+        <span class="icon">
+            <svg width="24" height="22" x="0px" y="0px" viewBox="0 0 640.7 585.2" style="enable-background:new 0 0 640.7 585.2;" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M322.5,581.6c32.3-6.2,63.3-16.2,92.7-31.2c26.4-13.4,49.8-30.7,69.7-52.8c4.8-5.4,5.1-11.3,0.7-16.6
+                        c-5.5-6.7-15.9-9.7-24.3-1.2c-18.2,18.6-39.4,33.2-62.6,44.9c-26.8,13.5-55,22.1-84.8,26c-21.1,2.8-42.2,2.8-63.2,0.4
+                        c-19.5-2.2-38.5-6.9-56.7-14.4c-7.3-3-16.1,1.4-19.6,9.3c-3.4,7.6-1.2,14.4,7.4,17.7c11.4,4.5,23.1,8.1,34.8,11.6
+                        c9.5,2.8,19.2,4.8,28.8,7.1C260.3,585.7,304.3,586.7,322.5,581.6L322.5,581.6z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M279,486.1c53.9-0.9,97.7-18.1,134-53.5c9.9-9.6,23.1-7.4,26.8,4.6c2.1,6.9-0.7,12.8-5.7,17
+                        c-11.1,9.5-22.2,19.3-34.3,27.4c-29.9,20.1-63.4,30.5-99.3,33.1c-54.4,4-104.2-9.3-147.9-42.2c-44.5-33.6-72.3-78.1-82.3-133.2
+                        c-8.8-48.7-2.8-95.5,19.1-140c8.8-17.9,20.1-34.2,34.2-48.3c28.5-28.8,57.2-57.3,85.8-86c1.8-1.8,4-3.1,5.5-5.1
+                        c4.9-6.7,14.3-4.4,19.7,1.2c5.9,6,6.2,12.9,0.3,19c-8.5,9-17,17.8-25.7,26.6c-21.5,21.9-43.3,43.4-64.6,65.5
+                        c-24.2,25.2-38.5,55.7-45.1,89.8c-7,36-4.7,71.5,9.5,105.4c26.5,63.2,73.9,101.6,140.9,115.6C260.6,485.3,271.5,485.3,279,486.1z"
+                        />
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M286.7,380.8c-47-0.7-81.3-32.3-85.6-74.9c-2.8-27.9,8-50.3,27.1-69.6c19.9-20.1,39.8-40.3,60-60.2
+                        c18-17.8,36.4-35.2,54.7-52.7c5.7-5.4,12.1-4.7,18,1.2c5.8,5.9,6.4,13.2,1.2,18.7c-10.1,10.6-20.3,21.2-30.6,31.6
+                        c-28.4,28.8-57,57.5-85.5,86.3c-17.8,18.1-21,44.3-6.9,65.5c19.1,28.5,56.8,31,77.9,10.7c15.1-14.6,29.7-29.7,44.6-44.4
+                        c7-6.9,14.2-13.6,21.3-20.3c5.9-5.5,13-5,19,1c6.4,6.4,7,13.4,1.3,19.4c-10.8,11.3-21.8,22.5-32.8,33.7
+                        c-10.4,10.6-20.7,21.3-31.4,31.5C323.5,373.4,304.3,380.3,286.7,380.8z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M284.6,448.2c-59.6,0-106.8-28.2-136.4-85.4c-3.1-6-5.5-12.5-7.2-19c-1.8-6.8,2-12.9,8.8-16.2
+                        c5.5-2.7,12.2-1.1,16.6,4.3c2,2.5,3.6,5.6,4.9,8.6c17.1,42,47.5,68.2,92.4,75.8c39.8,6.8,74.5-4.9,103.2-33.2
+                        c21.6-21.2,42.7-43.1,64.2-64.5c12.7-12.7,25.7-25.2,38.6-37.8c6.2-6,14.3-5.7,20.8,0.7c6.1,6.1,6,13.2-0.4,19.8
+                        c-33.7,34.2-67.3,68.5-101.1,102.5C361.6,431.5,328.2,445.8,284.6,448.2z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M90.7,504.8c-2-1.2-6-2.5-8.6-5.1c-38.1-38.8-64.3-84.3-75.3-137.9c-1.7-8-3.2-17.2-4.2-25.4
+                        c-3.5-29.3-4.1-64.9,1.8-95.3c2.4-12.4,6.7-24.9,10.9-37.2C29.1,163,51.7,127.4,82.2,96.8c8-8,20.5-4.5,24.7,5
+                        c2.4,5.5,0.8,10-2.8,14.2c-5.7,6.5-11.5,12.9-16.9,19.7c-22.7,28.3-39.6,59.6-49,94.7c-7.7,28.8-10.7,58.1-8.1,88
+                        c3.2,37.2,13.4,72.2,31.4,104.9c10.6,19.2,23.9,36.5,38.8,52.5c1.4,1.5,2.6,3.1,4,4.5c4.9,4.9,4.4,10.4,1.6,16.1
+                        C103.2,501.8,98.6,504.3,90.7,504.8z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M156.8,267.6c-11,0-17.9-9.2-14.5-19.6c7.4-22.5,20.6-41.3,37-58c27.5-27.8,55-55.7,82.7-83.3
+                        c14.3-14.2,28.8-28.1,43.4-42.1c4.7-4.6,11.7-4,17.5,1c5.8,5.1,7.7,12.6,3.4,17.6c-5.9,7-12.3,13.6-18.7,20.1
+                        c-31.8,32.1-63.3,64.4-95.6,95.9c-18.1,17.7-33.5,36.9-43.2,60.4C166.6,264.9,162.7,267.9,156.8,267.6z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M353.6,244.4c-1,1.7-2.2,5.1-4.5,7.5c-18.5,19.1-37.2,38.1-56,56.9c-6.4,6.4-14.3,6.1-20.8-0.4
+                        c-6.4-6.4-6.4-13.5,0-20.2c12-12.4,23.9-25,36.2-37.2c6.8-6.8,14.3-13,21.3-19.6c4.3-4.1,9-4.9,14.1-2.3
+                        C349.4,231.9,353,236.2,353.6,244.4z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M357.4,206.3c1.3-2.6,2-5.8,3.9-7.7c12.6-12.8,25.3-25.5,38.3-37.8c6.1-5.8,13.5-4.8,19.2,1.5
+                        c6.7,7.3,7.2,11.8,0.4,19c-12.1,12.8-24.6,25.2-37.1,37.6c-4,4-9,5.1-14.2,2.3C362.2,218.2,358.1,213.7,357.4,206.3z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M497.3,352.3c0.4-0.9,0.8-3.7,2.3-5.4c11-12,21-25,34.8-34.2c5.3-3.5,12-2.5,17,2.8c5.5,5.8,6.7,11.3,2.2,16.2
+                        c-10.7,11.8-21.8,23.3-33,34.6c-3.7,3.8-8.6,3.8-13.5,1.5C501.7,365.3,497.4,359.2,497.3,352.3z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M382,119.8c-8.1-1.1-12.7-5.2-15.4-11.3c-2.4-5.5-0.9-10.3,3.4-14.4c8-7.7,15.8-15.6,23.9-23.3
+                        c4.4-4.2,9.6-4,14.8-1.5c5.5,2.7,8.8,7.1,9.3,13.2c0.1,1.9-0.8,4.5-2.1,5.9c-9.1,9.7-18.3,19.2-27.8,28.5
+                        C386.4,118.6,383.5,119.1,382,119.8z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M522.4,460.9c-5,5.1-11,6.4-17.3,4.3c-5.9-2-9-7.2-9.1-13.1c0-3.4,1.3-7.8,3.7-10.2l115.1-116.1
+                        c4.8-4.4,10.3-4.2,16-1.6c6,2.8,9.5,7.4,10,13.8c0.2,2-0.8,4.7-2.3,6.2L522.4,460.9z"/>
+                    <path fill="#{{ collector.hasErrors() ? 'FFF' : 'AAA' }}" d="M125.9,53.3c-6,6.2-6.1,12.8,0,19.3c6,6.3,14.1,7.3,19.9,1.6c14.3-14.1,44.5-45.2,50.5-51.3
+                        c0.3-0.3,0.7-0.7,1.1-1.1c1.4-1.5,2.3-4.1,2.2-6.1c-0.5-6.3-3.9-10.9-9.7-13.7c-5.4-2.6-10.8-2.9-15.4,1.5L125.9,53.3z"/>
+                </g>
+            </svg>
+        </span>
+        <strong>SPIRIT API</strong>
+        <span class="count">
+            <span>{{ collector.callsCount }}</span>
+        </span>
+    </span>
+{% endblock %}
+
+{% block panel %}
+    <h2>SPIRIT API</h2>
+    <div class="metrics">
+        <div class="metric">
+            <span class="value">{{ collector.calls|length }}</span>
+            <span class="label">No. of calls made</span>
+        </div>
+
+        <div class="metric">
+            <span class="value">{{ collector.errors|length }}</span>
+            <span class="label">Errors</span>
+        </div>
+
+        <div class="metric">
+            <span class="value">{{ collector.totalTime|number_format }} <span class="unit">ms</span></span>
+            <span class="label">Call execution time</span>
+        </div>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col" class="key">Property</th>
+                <th scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Base URL</th>
+                <td>{{ dump(collector.baseUrl) }}</td>
+            </tr>
+            <tr>
+                <th>API key</th>
+                <td>{{ collector.apiKey }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Calls</h3>
+    {% if collector.calls is empty %}
+        <div class="empty">
+            <p>No API calls made</p>
+        </div>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-right">#</th>
+                    <th>Data</th>
+                    <th class="full-width"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i, call in collector.calls %}
+                    <tr>
+                        <th style="border-bottom: none;" class="font-normal text-muted">{{ i + 1 }}</th>
+                        <th style="border-bottom: none;" class="text-right" nowrap>Full URL:</th>
+                        <td style="border-bottom: none;" class="font-normal">
+                            <span class="dump-inline"><b>{{ call.method }}</b>::{{ dump(call.endpoint) }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="border-top: none; border-bottom: none;" class="font-normal text-muted"></th>
+                        <th style="border-top: none; border-bottom: none;" class="text-right" nowrap>Code:</th>
+                        <td style="border-top: none; border-bottom: none;" class="font-normal">
+                            <span>
+                                {% if call.isError %}
+                                    <span class="label status-error same-width">Error: {{ call.code|default('-') }}</span>
+                                {% else %}
+                                    <span class="label status-success same-width">Success: {{ call.code }}</span>
+                                {% endif %}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="border-top: none; border-bottom: none;" class="font-normal text-muted"></th>
+                        <th style="border-top: none; border-bottom: none;" class="text-right" nowrap>Message:</th>
+                        <td style="border-top: none; border-bottom: none;" class="font-normal">
+                            <span class="dump-inline">{{ dump(call.message) }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="border-top: none; border-bottom: none;" class="font-normal text-muted"></th>
+                        <th style="border-top: none; border-bottom: none;" class="text-right" nowrap>Request:</th>
+                        <td style="border-top: none; border-bottom: none;" class="font-normal">
+                            <span class="metadata">
+                                <a class="btn btn-link text-small sf-toggle" data-toggle-selector="#data-request-dump-{{ i }}" data-toggle-alt-content="Show request data" data-toggle-original-content="Hide request data">Show request data</a>
+                                <div id="data-request-dump-{{ i }}">
+                                    {{ dump(call.call.data) }}
+                                </div>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="border-top: none; border-bottom: none;" class="font-normal text-muted"></th>
+                        <th style="border-top: none; border-bottom: none;" class="text-right" nowrap>Response:</th>
+                        <td style="border-top: none; border-bottom: none;" class="font-normal">
+                            <span class="metadata">
+                                <a class="btn btn-link text-small sf-toggle" data-toggle-selector="#data-response-dump-{{ i }}" data-toggle-alt-content="Show response data" data-toggle-original-content="Hide response data">Show response data</a>
+                                <div id="data-response-dump-{{ i }}">
+                                    {{ dump({
+                                        code: call.code,
+                                        isError: call.isError,
+                                        message: call.message,
+                                        data: call.data
+                                    }) }}
+                                </div>
+                            </span>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

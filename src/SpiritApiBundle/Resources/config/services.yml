@@ -1,0 +1,249 @@
+services:
+    # API ter.
+    spirit_api.caller:
+        class: Edcoms\SpiritApiBundle\Caller\ApiCaller
+
+    # main item helper.
+    spirit_api.helpers:
+        class: Edcoms\SpiritApiBundle\Helper\SpiritApiHelpers
+        arguments: ['@spirit_api.caller', '@spirit_api.synchronizer']
+
+    # indvidual item helpers.
+    spirit_api.activity:
+        class: Edcoms\SpiritApiBundle\Helper\ActivityHelper
+        tags:
+            - { name: spirit_api.helper }
+
+    spirit_api.country:
+        class: Edcoms\SpiritApiBundle\Helper\CountryHelper
+        tags:
+            - { name: spirit_api.helper }
+
+    spirit_api.organisation:
+        class: Edcoms\SpiritApiBundle\Helper\OrganisationHelper
+        tags:
+            - { name: spirit_api.helper }           
+
+    spirit_api.organisation_type_helper:
+        class: Edcoms\SpiritApiBundle\Helper\OrganisationTypeHelper
+        tags:
+            - { name: spirit_api.helper } 
+
+    spirit_api.web_account:
+        class: Edcoms\SpiritApiBundle\Helper\WebAccountHelper
+        tags:
+            - { name: spirit_api.helper }
+
+    spirit_api.product_usage.transaction_types:
+        class: Edcoms\SpiritApiBundle\Helper\ProductUsageTransactionTypeHelper
+        tags:
+            - { name: spirit_api.helper }
+
+    spirit_api.product:
+        class: Edcoms\SpiritApiBundle\Helper\ProductHelper
+        tags:
+            - { name: spirit_api.helper }            
+
+    spirit_api.product_usage:
+        class: Edcoms\SpiritApiBundle\Helper\ProductUsageHelper
+        tags:
+            - { name: spirit_api.helper }
+
+    spirit_api.metadata:
+        class: Edcoms\SpiritApiBundle\Helper\MetaDataHelper
+        tags:
+            - { name: spirit_api.helper }
+
+    spirit_api.tag:
+        class: Edcoms\SpiritApiBundle\Helper\TagsHelper
+        tags:
+            - { name: spirit_api.helper }
+        calls:
+            - [setContainerHelper, ["@spirit_api.container"]]
+
+    spirit_api.container:
+        class: Edcoms\SpiritApiBundle\Helper\ContainerHelper
+        tags:
+            - { name: spirit_api.helper }
+
+    # mapper.
+    spirit_api.model_mapper:
+        class: Edcoms\SpiritApiBundle\Mapper\ModelMapper
+        arguments: ['@annotation_reader', '@event_dispatcher']
+
+    # normalizer.
+    spirit_api.model_normalizer:
+        class: Edcoms\SpiritApiBundle\Normalizer\ModelNormalizer
+
+    # synchronizer.
+    spirit_api.synchronizer:
+        class: Edcoms\SpiritApiBundle\Synchronizer\EntitySynchronizer
+        arguments: ['@doctrine.orm.entity_manager', '@annotation_reader']
+
+    # event listeners.
+    spirit_api.call_listener:
+        class: Edcoms\SpiritApiBundle\Listener\SpiritMappedEventListener
+        arguments: ["@spirit_api.synchronizer"]
+        tags:
+            - { name: kernel.event_listener, event: spirit_api.mapped, method: onSpiritApiMap }
+
+    # form types.
+    spirit_api.form_type.country_choice_type:
+        class: Edcoms\SpiritApiBundle\Form\Type\CountryChoiceType
+        arguments: ['@spirit_api.country', '@form.choice_list_factory']
+        tags:
+            - { name: form.type, alias: Edcoms\SpiritApiBundle\Form\Type\CountryChoiceType }
+
+    spirit_api.form_type.organsation_type:
+        class: Edcoms\SpiritApiBundle\Form\Type\OrganisationType
+        arguments: ['@spirit_api.organisation', '@spirit_api.organisation_type_helper']
+        tags:
+            - { name: form.type, alias: Edcoms\SpiritApiBundle\Form\Type\OrganisationType }
+
+    # commands.
+    spirit_api.command.country:
+        class: Edcoms\SpiritApiBundle\Command\CountryLookupCommand
+        arguments: ['@spirit_api.country']
+        public: false
+        tags:
+            -
+                id: spirit_api.country_command
+                name: console.command
+
+    spirit_api.command.organisation.lookup:
+        class: Edcoms\SpiritApiBundle\Command\OrganisationLookupCommand
+        arguments: ['@spirit_api.organisation']
+        public: false
+        tags:
+            -
+                id: spirit_api.organisation_command
+                name: console.command
+
+    spirit_api.command.ping:
+        class: Edcoms\SpiritApiBundle\Command\PingCommand
+        arguments: ['@spirit_api.caller']
+        public: false
+        tags:
+            -
+                id: spirit_api.ping
+                name: console.command
+
+    spirit_api.command.synchronize:
+        class: Edcoms\SpiritApiBundle\Command\SynchronizeCommand
+        arguments: ['@annotation_reader', '@spirit_api.caller', '@spirit_api.helpers']
+        public: false
+        tags:
+            -
+                id: spirit_api.synchronize
+                name: console.command
+
+    spirit_api.command.web_account.lookup:
+        class: Edcoms\SpiritApiBundle\Command\WebAccountLookupCommand
+        arguments: ['@spirit_api.web_account']
+        public: false
+        tags:
+            -
+                id: spirit_api.web_account_lookup_command
+                name: console.command
+
+    spirit_api.command.web_account.update:
+        class: Edcoms\SpiritApiBundle\Command\WebAccountUpdateCommand
+        arguments: ['@spirit_api.web_account']
+        public: false
+        tags:
+            -
+                id: spirit_api.web_account_update_command
+                name: console.command
+
+    spirit_api.command.web_account.create:
+        class: Edcoms\SpiritApiBundle\Command\WebAccountCreateCommand
+        arguments: ['@spirit_api.web_account']
+        public: false
+        tags:
+            -
+                id: spirit_api.web_account_create_command
+                name: console.command
+
+    spirit_api.command.web_account.authenticate:
+        class: Edcoms\SpiritApiBundle\Command\WebAccountAuthenticateCommand
+        arguments: ['@spirit_api.web_account']
+        public: false
+        tags:
+            -
+                id: spirit_api.web_account_authenticate_command
+                name: console.command                                
+
+    spirit_api.command.web_account.update_password:
+        class: Edcoms\SpiritApiBundle\Command\WebAccountUpdatePasswordCommand
+        arguments: ['@spirit_api.web_account']
+        public: false
+        tags:
+            -
+                id: spirit_api.web_account_update_password_command
+                name: console.command
+
+    spirit_api.command.product_usage.transaction_types:
+        class: Edcoms\SpiritApiBundle\Command\ProductUsageTransactionTypeLookupCommand
+        arguments: ['@spirit_api.product_usage.transaction_types']
+        public: false
+        tags:
+            -
+                id: spirit_api.product_usage.transaction_types_command
+                name: console.command
+
+    spirit_api.command.product_usage.transaction_types.create:
+        class: Edcoms\SpiritApiBundle\Command\ProductUsageTransactionTypeCreateCommand
+        arguments: ['@spirit_api.product_usage.transaction_types']
+        public: false
+        tags:
+            -
+                id: spirit_api.product_usage.transaction_types_command
+                name: console.command
+
+    spirit_api.command.product.create:
+        class: Edcoms\SpiritApiBundle\Command\ProductCreateCommand
+        arguments: ['@spirit_api.product']
+        public: false
+        tags:
+            -
+                id: spirit_api.product.create_command
+                name: console.command
+
+    spirit_api.command.product_usage.create:
+        class: Edcoms\SpiritApiBundle\Command\ProductUsageCreateCommand
+        arguments: ['@spirit_api.product_usage']
+        public: false
+        tags:
+            -
+                id: spirit_api.product_usage.create_command
+                name: console.command
+
+    spirit_api.command.metadata.load:
+        class: Edcoms\SpiritApiBundle\Command\MetaDataLoadCommand
+        arguments: ['@spirit_api.metadata']
+        public: false
+        tags:
+            -
+                id: spirit_api.metadata.load_command
+                name: console.command
+
+    spirit_api.command.metadata.save:
+        class: Edcoms\SpiritApiBundle\Command\MetaDataSaveCommand
+        arguments: ['@spirit_api.metadata']
+        public: false
+        tags:
+            -
+                id: spirit_api.metadata.save_command
+                name: console.command
+
+
+    # data collector.
+    spirit_api.call_collector:
+        class: Edcoms\SpiritApiBundle\DataCollector\ApiCallDataCollector
+        arguments: ['@spirit_api.caller']
+        public: false
+        tags:
+            -
+                id: spirit_api.call_collector
+                name: data_collector
+                template: 'SpiritApiBundle:Collector:api_call_collector.html.twig'
